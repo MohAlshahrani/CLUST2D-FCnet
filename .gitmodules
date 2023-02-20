@@ -1,0 +1,3 @@
+[submodule "CLUST2D"]
+	path = CLUST2D
+	url = git@github.com:MohAlshahrani/CLUST2D.git
