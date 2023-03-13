@@ -6,7 +6,7 @@
 rm vid_id_frames.txt
 
 rootdir=$1
-datadir='/Users/mohammed/DATASET/CLUST2D/'
+datadir='../../../../scratch/mqa5928/CLUST2D/'
 cnt=1
 
 for l1 in `ls $rootdir/$datadir`

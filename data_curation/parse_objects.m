@@ -11,10 +11,10 @@ function parse_objects(root, folder_index)
     i = folder_index + 3;
     
 
-    root_imgs = [root '/data'];
+    root_imgs = [root '/CLUST2D'];
     dir_root_imgs = dir(root_imgs);
     dir_root_imgs = {dir_root_imgs.name};
-%     disp(dir_root_imgs);
+    disp(dir_root_imgs);
     % we always start from 3 because at 1 we have '.' and at 2 '..'
     level1 = [root_imgs slash dir_root_imgs{i}];
 %     level1 = root_imgs;
