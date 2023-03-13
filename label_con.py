@@ -4,7 +4,7 @@ from util import filesNdirec
 import numpy as np
 
 #put the directory where all training images reside.
-trainig_dir = "/Users/mohammed/DATASET/CLUST2D/train/"
+trainig_dir = "../../../scratch/mqa5928/train/"
 
 files_list=[]
 names=[]
