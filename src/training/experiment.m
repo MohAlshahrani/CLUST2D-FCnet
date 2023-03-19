@@ -19,7 +19,7 @@ function [net, stats] = experiment(imdb_video, varargin)
     opts.init.initBias = 0.1;
     opts.expDir = 'data'; % where to save the trained net
     %-------- added form Siamese-fc
-    opts.validation = 0;
+    opts.validation = 0.1;
     %------------------
     opts.numFetchThreads = 12; % used by vl_imreadjpg when reading dataset
     opts.exemplarSize = 127; % training image (use 255 for corrfilt, 127 for xcorr)

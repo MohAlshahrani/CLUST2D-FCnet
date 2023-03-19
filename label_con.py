@@ -4,7 +4,7 @@ from util import filesNdirec
 import numpy as np
 
 #put the directory where all training images reside.
-trainig_dir = "../../../../scratch/mqa5928/CLUST2D/train/"
+trainig_dir = "dataset/CLUST2D/train/"
 
 files_list=[]
 names=[]
@@ -46,27 +46,33 @@ for folder in os.listdir(trainig_dir):
         annotation = np.reshape(annotations,((int(len(annotations)/3)),3))
         imgs = annotation[:,0]
         img_seq = 1
+        counter = 0
         for img in imgs:
+            x = annotation[counter,1]-25
+            y = annotation[counter,2]-25
             img_name = str(img).zfill(5)
+            img_path = ("{0}/{1}.png".format(dir_txt[obj],img_name))
             image = Image.open("{0}/{1}.png".format(dir_txt[obj],img_name))
             width, height = image.size
             image.close
             output_file = open("{0}/{1}_{2}.txt".format(dir_txt[obj],img_name,obj),"w")
-            output_file.write("3,{0},{1},{2},1,{3},{4},{5},50,50,{6}\n".format(f_idx,img_seq+3,obj,f_num,width,height,dir_txt[obj]))
+            output_file.write("3,{0},{1},1,1,1,{2},{3},{4},{5},50,50,{6}\n".format(f_idx,img_seq+3,width,height,x,y,img_path))
+                    #  % reading i, j, k, o, trackid, o_class, frame_sz(2), frame_sz(1), o_xmin, o_ymin, o_sz(2), o_sz(1), im_path
             output_file.close
-            img_seq =+ 1
+            img_seq += 1
+            counter += 1
         
-        counter = 0
-        used_imgs = [] 
-        for img in imgs: 
-            img_name = str(img).zfill(5)
-            used_imgs.append("{0}/{1}.png".format(dir_txt[obj],img_name))
-            counter =+ 1
+    #     counter = 0
+    #     used_imgs = [] 
+    #     for img in imgs: 
+    #         img_name = str(img).zfill(5)
+    #         used_imgs.append("{0}/{1}.png".format(dir_txt[obj],img_name))
+    #         counter =+ 1
     
-        p1,p2,p3 = filesNdirec(dir_txt[obj],".png")
+    #     p1,p2,p3 = filesNdirec(dir_txt[obj],".png")
 
-    result = [m for m in p1 if not m in used_imgs or used_imgs.remove(m)]
-    for files in result:
-        os.remove(files)
+    # result = [m for m in p1 if not m in used_imgs or used_imgs.remove(m)]
+    # for files in result:
+    #     os.remove(files)
 
     # i is 3, f_idx, k img_seq start at 3, object numb ,track id, class_name , img.width, img.hieght,bboxw,bbxh, im.path

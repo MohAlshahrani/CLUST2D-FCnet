@@ -6,7 +6,7 @@
 rm vid_id_frames.txt
 
 rootdir=$1
-datadir='/Users/mohammed/DATASET/CLUST2D/'
+datadir='CLUST2D'
 cnt=1
 
 for l1 in `ls $rootdir/$datadir`
@@ -14,7 +14,7 @@ do
 	for l2 in `ls $rootdir/$datadir/$l1`
 	do
 		nframes=`ls $rootdir/$datadir/$l1/$l2 | wc -l`
-		echo $l1/$l2 $cnt $(expr $nframes - 1)
+		echo $l1/$l2 $cnt  $nframes
 		cnt=$((cnt+1))
 	done
 done >> vid_id_frames.txt
