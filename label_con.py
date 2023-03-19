@@ -3,8 +3,17 @@ from PIL import Image
 from util import filesNdirec
 import numpy as np
 
+<<<<<<< HEAD
+#put the directory  here the folder of all training images reside.
+trainig_dir = "../../../scratch/mqa5928/CLUST2D/train/"
+=======
 #put the directory where all training images reside.
+<<<<<<< HEAD
 trainig_dir = "dataset/CLUST2D/train/"
+=======
+trainig_dir = "../../../../scratch/mqa5928/CLUST2D/train/"
+>>>>>>> 2e254ded71b169d05dbc926d4cd8ac1b583ff17f
+>>>>>>> 92a153e666d1c33a7551c5c68b8c3afbf154f82c
 
 files_list=[]
 names=[]
